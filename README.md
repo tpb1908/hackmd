@@ -1,84 +1,15 @@
-HackMD
+HackMD fork
 ===
 
-[![Standard - JavaScript Style Guide][standardjs-image]][standardjs-url]
-
-[![Join the chat at https://gitter.im/hackmdio/hackmd][gitter-image]][gitter-url]
-[![build status][travis-image]][travis-url]
+Now running on https://tpb1908-hackmd.herokuapp.com/
+with a character limit of 1E6 rather than 1E5.
+Sign is only with GitHub.
 
 
 HackMD lets you create realtime collaborative markdown notes on all platforms.  
 Inspired by Hackpad, with more focus on speed and flexibility.  
 Still in the early stage, feel free to fork or contribute to HackMD.
 
-Thanks for using! :smile:
-
-[docker-hackmd](https://github.com/hackmdio/docker-hackmd)
----
-
-Before you go too far, here is the great docker repo for HackMD.  
-With docker, you can deploy a server in minutes without any downtime.
-
-Heroku Deployment
----
-
-You can quickly setup a sample heroku hackmd application by clicking the button below.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-[migration-to-0.5.0](https://github.com/hackmdio/migration-to-0.5.0)
----
-
-We don't use LZString to compress socket.io data and DB data after version 0.5.0.  
-Please run the migration tool if you're upgrading from the old version.
-
-[migration-to-0.4.0](https://github.com/hackmdio/migration-to-0.4.0)
----
-
-We've dropped MongoDB after version 0.4.0.  
-So here is the migration tool for you to transfer the old DB data to the new DB.  
-This tool is also used for official service.
-
-Browsers Requirement
----
-
-- Chrome >= 47, Chrome for Android >= 47
-- Safari >= 9, iOS Safari >= 8.4
-- Firefox >= 44
-- IE >= 9, Edge >= 12
-- Opera >= 34, Opera Mini not supported
-- Android Browser >= 4.4
-
-Prerequisite
----
-
-- Node.js 6.x or up (test up to 7.5.0)
-- Database (PostgreSQL, MySQL, MariaDB, SQLite, MSSQL) use charset `utf8`
-- npm (and its dependencies, especially [uWebSockets](https://github.com/uWebSockets/uWebSockets#nodejs-developers), [node-gyp](https://github.com/nodejs/node-gyp#installation))
-
-Get started
----
-
-1. Download a release and unzip or clone into a directory
-2. Enter the directory and type `bin/setup`, which will install npm dependencies and create configs. The setup script is written in Bash, you would need bash as a prerequisite.
-3. Setup the configs, see more below
-4. Setup environment variables which will overwrite the configs
-5. Build front-end bundle by `npm run build` (use `npm run dev` if you are in development)
-6. Run the server as you like (node, forever, pm2)
-
-Upgrade guide
----
-
-If you are upgrading HackMD from an older version, follow these steps:
-
-1. Fully stop your old server first (important)
-2. `git pull` or do whatever that updates the files
-3. `npm install` to update dependencies
-4. Build front-end bundle by `npm run build` (use `npm run dev` if you are in development)
-5. Modify the file named `.sequelizerc`, change the value of the variable `url` with your db connection string
-   For example: `postgres://username:password@localhost:5432/hackmd`
-6. Run `node_modules/.bin/sequelize db:migrate`, this step will migrate your db to the latest schema
-7. Start your whole new server!
 
 Structure
 ---
@@ -144,7 +75,7 @@ Environment variables (will overwrite other server configs)
 | HMD_LDAP_SEARCHFILTER | `(uid={{username}})` | LDAP filter to search with |
 | HMD_LDAP_SEARCHATTRIBUTES | no example | LDAP attributes to search with |
 | HMD_LDAP_TLS_CA | `server-cert.pem, root.pem` | Root CA for LDAP TLS in PEM format (use comma to separate) |
-| HMD_LDAP_PROVIDERNAME | `My institution` | Optional name to be displayed at login form indicating the LDAP provider | 
+| HMD_LDAP_PROVIDERNAME | `My institution` | Optional name to be displayed at login form indicating the LDAP provider |
 | HMD_IMGUR_CLIENTID | no example | Imgur API client id |
 | HMD_EMAIL | `true` or `false` | set to allow email signin |
 | HMD_ALLOW_EMAIL_REGISTER | `true` or `false` | set to allow email register (only applied when email is set, default is `true`) |
